@@ -588,6 +588,8 @@ gitlab_runner__machine_options: []
 # Enable the support for distributed cache.
 gitlab_runner__cache: False
 
+# distributed cache
+gitlab_runner__cache_shared: False
                                                                    # ]]]
 # .. envvar:: gitlab_runner__cache_type [[[
 #
