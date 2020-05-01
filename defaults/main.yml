@@ -22,7 +22,7 @@ gitlab_runner__apt_upstream: True
 # .. envvar:: gitlab_runner__apt_key [[[
 #
 # GPG key which signs the upstream APT repository package list.
-gitlab_runner__apt_key: '1A4C919DB987D435939638B914219A96E15E78F4'
+gitlab_runner__apt_key_url: https://packages.gitlab.com/gpg.key
 
                                                                    # ]]]
 # .. envvar:: gitlab_runner__apt_repo [[[
@@ -45,6 +45,7 @@ gitlab_runner__base_packages:
 gitlab_runner__packages: []
                                                                    # ]]]
                                                                    # ]]]
+gitlab_runner__packages_state: present
 # User, group, home directory [[[
 # -------------------------------
 

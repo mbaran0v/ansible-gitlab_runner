@@ -62,11 +62,7 @@
 
 - name: Add gitlab-runner APT key
   apt_key:
-    id: '{{ gitlab_runner__apt_key }}'
-    keyserver: '{{ ansible_local.core.keyserver
-                   if (ansible_local|d() and ansible_local.core|d() and
-                       ansible_local.core.keyserver)
-                   else "hkp://pool.sks-keyservers.net" }}'
+    url: '{{ gitlab_runner__apt_key_url }}'
     state: 'present'
   when: gitlab_runner__apt_upstream|bool
 
@@ -80,7 +76,7 @@
 - name: Install gitlab-runner packages
   apt:
     name: '{{ item }}'
-    state: 'present'
+    state: '{{ gitlab_runner__packages_state }}'
     install_recommends: False
   with_flattened:
     - '{{ gitlab_runner__base_packages }}'
